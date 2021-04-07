@@ -4,6 +4,7 @@ import { BsPeople } from 'react-icons/bs';
 import { CgNotes } from 'react-icons/cg';
 import { VscGraph } from 'react-icons/vsc';
 import { RiCalendarLine } from 'react-icons/ri';
+import {FaUsers} from 'react-icons/fa'
 import { IoSettingsOutline } from 'react-icons/io5';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -36,10 +37,15 @@ const navItems = [
         link:"/calendar"
     },
     {
-        name: "Settings",
-        icon: <IoSettingsOutline />,
+        name: "Users",
+        icon: <FaUsers/>,
         link:"/settings"
-    }
+    },
+    // {
+    //     name:"Users",
+    //     icon:<FaUsers/>,
+    //     link:"/usernav"
+    // }
 ]
 
 const DashboardLayout = ({children}) => {
