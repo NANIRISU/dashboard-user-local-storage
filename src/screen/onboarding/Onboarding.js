@@ -10,4 +10,4 @@ import authenticate from '../../hoc/authentication';
   );
 }
 
-export default authenticate(Onboarding) ;
+export default Onboarding ;

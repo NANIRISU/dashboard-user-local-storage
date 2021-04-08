@@ -10,4 +10,4 @@ import authenticate from '../../hoc/authentication';
     </div>
   );
 }
-export default authenticate(Calendar);
+export default Calendar;

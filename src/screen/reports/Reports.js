@@ -9,4 +9,4 @@ import authenticate from '../../hoc/authentication';
   );
 }
 
-export default authenticate(Reports);
+export default Reports;

@@ -6,7 +6,7 @@ import "./Register.css";
 const Register = (props) => {
   const [authemail, setAuthEmail] = useState("");
   const [authpassword, setAuthPassword] = useState("");
-
+  // const [showPanel, togglePanel] = useState("false");
   const [users, setUsers] = useState([]);
 //   console.log(users,"users")
 
@@ -33,7 +33,7 @@ const Register = (props) => {
   
   const signupClickHandlerUSer =  () => {
     let temp = users;
-    temp.push({ useremail: authemail, password: authpassword });
+    temp.push({ useremail: authemail, password: authpassword,status:false });
     setUsers(temp);
 
     console.log(users);
@@ -67,6 +67,7 @@ const Register = (props) => {
       >
         Signup
       </NewButton>
+     
     </div>
   );
 };

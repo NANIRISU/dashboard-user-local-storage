@@ -9,6 +9,8 @@ const Login=(props)=>{
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const [errormsg,setErrorMsg]=useState('')
+    const [defualtemail,setdeafultemail]=useState('admin');
+    const [defualtpassword,SetDeafultPassword]=useState('admin');
     const [users,setUsers]=useState([])
     
     useEffect(() => {
@@ -21,24 +23,34 @@ const Login=(props)=>{
 
 
 
-    const loginClickHandlerAdmin=()=>{
-        //api call here jwt token
-        const jwtToken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
-        localStorage.setItem('Access-Token',jwtToken)
-        // props.setIsLoggedIn(true)
-        props.history.push('/')
-    }
+    // const loginClickHandlerAdmin=()=>{
+    //     //api call here jwt token
+    //     const jwtToken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+    //     localStorage.setItem('Access-Token',jwtToken)
+    //     // props.setIsLoggedIn(true)
+    //     props.history.push('/')
+    // }
 
    
 
     const loginClickHandlerUSer= (e)=>{
        e.preventDefault()  // reloading 
-       if(users.length>0 &&  users.some((user)=> user.useremail===email && user.password===password)){
+       console.log(defualtemail,"defualtemail");
+       console.log(defualtpassword,"defualtpassword")
+       if(email===defualtemail && password===defualtpassword)
+       {
+           props.history.push('/settings')
+       }
+       if(   users!== null && users.length>0 &&  users.some((user)=> user.useremail===email && user.password===password && user.status===true)){
+
         props.history.push('/user')
        }
        else{
+
+           
+        email!=="admin" && alert("please wait for admin procedings for true")
            console.log("invalid users")
-        //    return <h1>Something went wrong.</h1>
+           return <h1>Something went wrong.</h1>
        }
 
 
@@ -100,9 +112,9 @@ const registerUser=()=>{
                    <Input name="password" classes= {{inputComponentClass:"login-input" }} value={password} onChange={passwordChangeHandler} type="password" placeholder="Enter password..."onBlur={(event)=>onBlur(event.target.name)} errors={errormsg.password}  /> */}
                   <NewButton type="submit" className="login-btn" onClick={loginClickHandlerUSer}>Login</NewButton>
                   <NewButton onClick={registerUser} className="admin-btn">Register</NewButton>
-                  <h4>The admin have access this button</h4>
+                  {/* <h4>The admin have access this button</h4>
                   
-                   <Button onClick={loginClickHandlerAdmin} className="admin-btn">Login</Button>
+                   <Button onClick={loginClickHandlerAdmin} className="admin-btn">Login</Button> */}
                </form>
             </div>
         </div>
