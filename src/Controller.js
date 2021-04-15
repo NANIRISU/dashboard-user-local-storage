@@ -10,7 +10,15 @@ import Settings from './screen/settings/Settings'
 import Login from './screen/login/Login';
 import User from './screen/user/User';
 import Register from './screen/register/Register';
+import thunk from "redux-thunk";
+import { Provider } from "react-redux";
+import {createStore,applyMiddleware} from "redux";
+import rootReducer from './component/products-api/rootReducer';
 
+const store=createStore(
+    rootReducer,
+    applyMiddleware(thunk)
+  );
  const Controller=()=>{
     
      return(
@@ -21,7 +29,9 @@ import Register from './screen/register/Register';
         <Route path="/register" render={(props)=><Register {...props}/>}/>
         <DashboardLayout>
             <Route exact path="/" render={(props)=><Home {...props} />}/>
+            <Provider store={store}>
             <Route path ="/recruitment" render={(props)=><Recruitment {...props}/>}/>
+            </Provider>
             <Route path="/onboarding" render={(props)=><Onboarding {...props}/>}/>
             <Route path="/reports" render={(props)=><Reports {...props}/>}/>
             <Route path="/calendar" render={(props)=><Calendar {...props}/>}/>

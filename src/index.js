@@ -5,11 +5,17 @@ import './style/main.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import reportWebVitals from './reportWebVitals';
 import Controller from './Controller';
+import Recruitment from './screen/recruitment/Recruitment';
+
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Controller/>
+   
+      <Controller/>
+      {/* <Recruitment/> */}
+     
+    
   </React.StrictMode>,
   document.getElementById('root')
 );
